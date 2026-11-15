@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Dynamic Portfolio - Full-Stack Developer">
+    <title>Portfolio | SaiKrishna Koyyada</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --bg-primary: #f5f7fb;
+            --bg-secondary: #ffffff;
+            --bg-tertiary: #e9eef7;
+            --text-primary: #172033;
+            --text-secondary: #536078;
+            --text-tertiary: #8491a8;
+            --accent: #6757e8;
+            --accent-hover: #5142cf;
+            --accent-light: #eeecff;
+            --border: #dce3ef;
+            --card-bg: #ffffff;
+            --card-shadow: 0 8px 28px rgba(31, 43, 74, 0.07);
+            --card-shadow-hover: 0 14px 36px rgba(31, 43, 74, 0.13);
+            --modal-overlay: rgba(13, 19, 38, 0.78);
+            --tag-bg: #e8f8f6;
+            --tag-text: #087f78;
+            --timeline-line: #dce3ef;
+            --input-bg: #f8faff;
+            --input-border: #dce3ef;
+            --input-focus: #6757e8;
+            --skill-card-bg: #ffffff;
+            --skill-card-hover: #f8faff;
+            --nav-bg: rgba(255,255,255,0.88);
+            --nav-shadow: 0 2px 14px rgba(31,43,74,0.06);
+            --footer-bg: #151b31;
+            --footer-text: #c8d0e2;
+            --badge-bg: #eeecff;
+            --badge-text: #5142cf;
+            --scrollbar-thumb: #aeb9ce;
+            --scrollbar-track: #edf1f7;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #101729;
+            --bg-secondary: #17223a;
+            --bg-tertiary: #202d49;
+            --text-primary: #f2f5ff;
+            --text-secondary: #c0cbe0;
+            --text-tertiary: #8795b2;
+            --accent: #8b7cff;
+            --accent-hover: #a99fff;
+            --accent-light: #29264f;
+            --border: #30405f;
+            --card-bg: #1a2741;
+            --card-shadow: 0 8px 28px rgba(0,0,0,0.22);
+            --card-shadow-hover: 0 14px 36px rgba(0,0,0,0.34);
+            --modal-overlay: rgba(3, 7, 18, 0.84);
+            --tag-bg: #153d46;
+            --tag-text: #65d6c8;
+            --timeline-line: #30405f;
+            --input-bg: #17223a;
+            --input-border: #30405f;
+            --input-focus: #8b7cff;
+            --skill-card-bg: #1a2741;
+            --skill-card-hover: #202d49;
+            --nav-bg: rgba(16,23,41,0.9);
+            --nav-shadow: 0 2px 16px rgba(0,0,0,0.24);
+            --footer-bg: #090f1e;
+            --footer-text: #aebbd4;
+            --badge-bg: #29264f;
+            --badge-text: #c0b8ff;
+            --scrollbar-thumb: #465675;
+            --scrollbar-track: #17223a;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; font-size: 16px; }
+        body { font-family: var(--font-family); background-color: var(--bg-primary); color: var(--text-primary); line-height: 1.6; transition: background-color 0.35s ease, color 0.35s ease; overflow-x: hidden; min-height: 100vh; }
+        ::-webkit-scrollbar { width: 7px; }
+        ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
+        ::-webkit-scrollbar-thumb { background: var(--scrollbar-thumb); border-radius: 10px; }
+        ::selection { background: var(--accent); color: #fff; }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: color 0.25s ease; }
+        ul { list-style: none; }
+        button { cursor: pointer; font-family: var(--font-family); border: none; outline: none; background: none; }
+
+        .skip-link { position: absolute; top: -100px; left: 16px; background: var(--accent); color: #fff; padding: 8px 16px; border-radius: 0 0 6px 6px; z-index: 1000; font-weight: 600; font-size: 0.875rem; transition: top 0.3s ease; }
+        .skip-link:focus { top: 0; }
+
+        .navbar { position: sticky; top: 0; z-index: 100; background: var(--nav-bg); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); box-shadow: var(--nav-shadow); padding: 0 24px; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .nav-brand { font-weight: 800; font-size: 1.25rem; letter-spacing: -0.5px; color: var(--text-primary); }
+        .nav-brand span { color: var(--accent); }
+        .nav-links { display: flex; gap: 6px; align-items: center; }
+        .nav-links a { padding: 8px 14px; border-radius: 8px; font-weight: 500; font-size: 0.9rem; color: var(--text-secondary); transition: all 0.25s ease; }
+        .nav-links a:hover, .nav-links a:focus-visible { color: var(--accent); background: var(--accent-light); }
+        .nav-actions { display: flex; align-items: center; gap: 8px; }
+        .theme-toggle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--text-secondary); background: var(--bg-tertiary); flex-shrink: 0; transition: all 0.3s; }
+        .theme-toggle:hover { color: var(--accent); background: var(--accent-light); transform: rotate(20deg); }
+        .hamburger { display: none; width: 40px; height: 40px; border-radius: 8px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; background: var(--bg-tertiary); z-index: 101; }
+        .hamburger span { display: block; width: 20px; height: 2px; background: var(--text-primary); border-radius: 2px; transition: all 0.3s; }
+        .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        .section { padding: 48px 24px; max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 32px; }
+        .section-header h2 { font-size: 1.8rem; font-weight: 800; letter-spacing: -1px; position: relative; display: inline-block; }
+        .section-header h2::after { content: ''; position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 40px; height: 3px; background: var(--accent); border-radius: 3px; }
+
+        /* Home */
+        #home-section .home-container { display: flex; align-items: center; gap: 48px; flex-wrap: wrap; justify-content: center; }
+        .home-image-wrapper { flex-shrink: 0; width: 180px; height: 180px; border-radius: 50%; overflow: hidden; border: 4px solid var(--accent); box-shadow: 0 0 0 8px var(--accent-light); background: var(--bg-tertiary); }
+        .home-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .home-image-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; font-weight: 800; color: var(--accent); background: var(--accent-light); }
+        .home-text { flex: 1; min-width: 280px; }
+        .home-text .greeting { font-size: 0.9rem; font-weight: 600; color: var(--accent); letter-spacing: 1px; text-transform: uppercase; }
+        .home-text h1 { font-size: 2.4rem; font-weight: 900; letter-spacing: -1px; line-height: 1.1; margin: 4px 0 8px; }
+        .home-text .role { font-size: 1rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 12px; }
+        .home-text .description { font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6; max-width: 500px; }
+        .home-cta { display: inline-block; margin-top: 18px; padding: 10px 24px; background: var(--accent); color: #fff; border-radius: 50px; font-weight: 600; font-size: 0.9rem; transition: all 0.3s; }
+        .home-cta:hover { background: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(59,130,246,0.35); }
+
+        /* Resume Block */
+        .resume-block { text-align: center; padding: 24px 24px 32px; background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 24px; box-shadow: var(--card-shadow); max-width: 600px; margin-left: auto; margin-right: auto; }
+        .resume-block h3 { font-weight: 700; font-size: 1.2rem; margin-bottom: 12px; }
+        .resume-block .resume-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .resume-btn { padding: 10px 22px; border-radius: 8px; font-weight: 600; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-primary); }
+        .resume-btn.primary { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .resume-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        .resume-btn.primary:hover { background: var(--accent-hover); }
+
+        /* Tabs */
+        .tab-buttons { display: flex; justify-content: center; gap: 4px; margin-bottom: 24px; flex-wrap: wrap; }
+        .tab-btn { padding: 10px 20px; border-radius: 30px; font-weight: 600; font-size: 0.85rem; background: var(--bg-tertiary); color: var(--text-secondary); transition: all 0.25s; border: 1px solid transparent; }
+        .tab-btn:hover { background: var(--accent-light); color: var(--accent); }
+        .tab-btn.active { background: var(--accent); color: #fff; border-color: var(--accent); box-shadow: 0 4px 14px rgba(59,130,246,0.3); }
+        .tab-content-wrapper { position: relative; }
+        .tab-pane { display: none; animation: fadeInUp 0.35s ease; }
+        .tab-pane.active { display: block; }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        .skill-card { background: var(--skill-card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); transition: all 0.3s; }
+        .skill-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-3px); border-color: var(--accent); }
+        .skill-card-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .skill-card-title { font-weight: 700; font-size: 1.1rem; }
+        .skill-description { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px; }
+        .skill-tech-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+        .skill-tech-tag { font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); }
+
+        /* Education Timeline */
+        .timeline { position: relative; padding-left: 24px; max-width: 700px; margin: 0 auto; }
+        .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--timeline-line); }
+        .timeline-item { position: relative; margin-bottom: 32px; padding-left: 28px; }
+        .timeline-item::before { content: ''; position: absolute; left: -18px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg-primary); box-shadow: 0 0 0 3px var(--accent-light); z-index: 2; }
+        .timeline-degree { font-weight: 700; font-size: 1rem; }
+        .timeline-institution { font-weight: 500; color: var(--accent); font-size: 0.85rem; }
+        .timeline-year { display: inline-block; font-size: 0.75rem; color: var(--text-tertiary); background: var(--bg-tertiary); padding: 2px 10px; border-radius: 20px; margin: 4px 0; }
+        .timeline-desc { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+        .memo-btn { display: inline-block; margin-top: 8px; padding: 5px 14px; background: var(--accent-light); color: var(--accent); border-radius: 8px; font-weight: 600; font-size: 0.75rem; transition: all 0.25s; }
+        .memo-btn:hover { background: var(--accent); color: #fff; }
+
+        /* Projects */
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+        .project-card { background: var(--card-bg); border-radius: 14px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--card-shadow); transition: all 0.35s; }
+        .project-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-4px); border-color: var(--accent); }
+        .project-card-image { width: 100%; height: 180px; background: var(--bg-tertiary); overflow: hidden; }
+        .project-card-image img { width: 100%; height: 100%; object-fit: cover; }
+        .img-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: var(--text-tertiary); }
+        .project-card-body { padding: 20px; }
+        .project-card-body h3 { font-weight: 700; font-size: 1rem; margin-bottom: 6px; }
+        .project-card-body p { font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px; line-height: 1.6; }
+        .project-duration { display: inline-block; font-size: 0.75rem; font-weight: 600; color: var(--accent); background: var(--accent-light); padding: 2px 10px; border-radius: 20px; margin-bottom: 10px; }
+        .project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+        .project-tag { font-size: 0.7rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; background: var(--tag-bg); color: var(--tag-text); }
+        .project-links { display: flex; gap: 8px; flex-wrap: wrap; }
+        .project-btn { display: inline-flex; align-items: center; gap: 4px; padding: 7px 14px; border-radius: 8px; font-weight: 600; font-size: 0.75rem; transition: all 0.3s; border: 1px solid var(--border); background: var(--bg-tertiary); color: var(--text-secondary); }
+        .project-btn.github { background: #24292e; color: #fff; border-color: #24292e; }
+        .project-btn.live { background: var(--accent); color: #fff; border-color: var(--accent); }
+        .project-btn:hover { transform: translateY(-2px); }
+        .project-btn.github:hover { background: #000; }
+        .project-btn.live:hover { background: var(--accent-hover); }
+
+        /* Certificates */
+        .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 16px; }
+        .cert-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 12px; padding: 18px; box-shadow: var(--card-shadow); display: flex; gap: 12px; align-items: flex-start; }
+        .cert-card:hover { box-shadow: var(--card-shadow-hover); transform: translateY(-2px); border-color: var(--accent); }
+        .cert-icon { width: 46px; height: 46px; border-radius: 10px; overflow: hidden; background: var(--bg-tertiary); flex-shrink: 0; }
+        .cert-icon img { width: 100%; height: 100%; object-fit: cover; }
+        .icon-fallback { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; background: var(--accent-light); color: var(--accent); }
+        .cert-info h4 { font-weight: 700; font-size: 0.9rem; }
+        .cert-platform { font-size: 0.75rem; color: var(--accent); font-weight: 600; }
+        .cert-date { font-size: 0.7rem; color: var(--text-tertiary); margin-right: 6px; }
+        .cert-code { font-size: 0.65rem; background: var(--bg-tertiary); padding: 2px 6px; border-radius: 10px; font-family: monospace; }
+        .cert-desc { font-size: 0.78rem; color: var(--text-secondary); margin-top: 6px; line-height: 1.5; }
+        .cert-actions { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
+        .cert-verify-link { display: inline-block; font-size: 0.78rem; font-weight: 700; color: var(--accent); }
+        .cert-view-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 13px; border-radius: 8px; background: var(--accent); color: #fff; font-size: 0.75rem; font-weight: 700; transition: all .25s; }
+        .cert-view-btn:hover { background: var(--accent-hover); transform: translateY(-2px); }
+        .internships-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+        .internship-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 22px; box-shadow: var(--card-shadow); transition: .3s; }
+        .internship-card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--card-shadow-hover); }
+        .internship-card h3 { font-size: 1rem; margin-bottom: 5px; }
+        .internship-company { color: var(--accent); font-size: .85rem; font-weight: 700; }
+        .internship-meta { color: var(--text-tertiary); font-size: .75rem; margin: 8px 0; }
+        .internship-card p { color: var(--text-secondary); font-size: .85rem; }
+        .internship-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+        .internship-tag { background: var(--tag-bg); color: var(--tag-text); border-radius: 20px; padding: 3px 10px; font-size: .7rem; font-weight: 600; }
+        .empty-state { text-align: center; color: var(--text-secondary); background: var(--card-bg); border: 1px dashed var(--border); border-radius: 14px; padding: 28px; }
+
+        /* Contact */
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+        .contact-info-card, .contact-form-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: var(--card-shadow); }
+        .contact-info-card h3, .contact-form-card h3 { font-weight: 700; font-size: 1.1rem; margin-bottom: 14px; }
+        .contact-detail { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; font-size: 0.9rem; color: var(--text-secondary); }
+        .detail-icon { width: 34px; height: 34px; border-radius: 50%; background: var(--accent-light); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .social-links { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; }
+        .social-link { width: 38px; height: 38px; border-radius: 50%; background: var(--bg-tertiary); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; transition: all 0.3s; }
+        .social-link:hover { background: var(--accent); color: #fff; transform: translateY(-3px); }
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; font-weight: 600; font-size: 0.8rem; margin-bottom: 4px; color: var(--text-secondary); }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px 12px; border-radius: 10px; border: 1.5px solid var(--input-border); background: var(--input-bg); color: var(--text-primary); }
+        .submit-btn { width: 100%; padding: 10px; background: var(--accent); color: #fff; border-radius: 10px; font-weight: 700; }
+
+        /* Footer */
+        .site-footer { background: var(--footer-bg); color: var(--footer-text); padding: 32px 24px; text-align: center; }
+        .footer-container { max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+        .footer-name { font-weight: 700; font-size: 1rem; color: #fff; }
+        .footer-socials { display: flex; gap: 10px; }
+        .footer-socials a { width: 32px; height: 32px; border-radius: 50%; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #cbd5e1; }
+        .footer-socials a:hover { background: var(--accent); color: #fff; }
+        .footer-copy { font-size: 0.75rem; color: #64748b; }
+
+        /* Modal */
+        .modal-overlay { position: fixed; inset: 0; z-index: 200; background: var(--modal-overlay); display: flex; align-items: center; justify-content: center; padding: 24px; opacity: 0; pointer-events: none; transition: opacity 0.35s; }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal { background: var(--card-bg); border-radius: 16px; max-width: 800px; width: 100%; max-height: 85vh; overflow-y: auto; padding: 28px; position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3); animation: modalIn 0.4s ease; }
+        @keyframes modalIn { from { transform: translateY(40px) scale(0.94); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+        .modal-close { position: sticky; top: 0; float: right; width: 32px; height: 32px; border-radius: 50%; background: var(--bg-tertiary); font-size: 1rem; display: flex; align-items: center; justify-content: center; color: var(--text-secondary); }
+        .modal-close:hover { background: #ef4444; color: #fff; }
+        .document-viewer { width: 100%; height: 65vh; border: 1px solid var(--border); border-radius: 8px; margin-top: 12px; background: #fff; }
+        .certificate-image-viewer { display: block; max-width: 100%; max-height: 68vh; object-fit: contain; margin: 12px auto 0; border-radius: 8px; }
+        .viewer-note { color: var(--text-secondary); padding: 22px; background: var(--bg-tertiary); border-radius: 10px; margin-top: 12px; }
+        .document-download { display: inline-block; margin-top: 12px; padding: 8px 18px; background: var(--accent); color: #fff; border-radius: 8px; font-weight: 600; }
+
+        .back-to-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; border-radius: 50%; background: var(--accent); color: #fff; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; z-index: 50; opacity: 0; pointer-events: none; transition: all 0.35s; transform: translateY(12px); }
+        .back-to-top.visible { opacity: 1; pointer-events: all; transform: translateY(0); }
+
+        @media (max-width: 768px) {
+            .nav-links { position: fixed; top: 0; right: -100%; width: 260px; height: 100vh; background: var(--card-bg); flex-direction: column; padding: 80px 24px 24px; gap: 2px; box-shadow: -4px 0 24px rgba(0,0,0,0.15); transition: right 0.35s; z-index: 99; }
+            .nav-links.mobile-open { right: 0; }
+            .hamburger { display: flex; }
+            .home-container { flex-direction: column; text-align: center; }
+            .home-image-wrapper { width: 150px; height: 150px; }
+            .home-text h1 { font-size: 2rem; }
+            .section { padding: 36px 16px; }
+            .skills-grid { grid-template-columns: 1fr; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .certs-grid, .internships-grid { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .tab-btn { padding: 8px 14px; font-size: 0.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to content</a>
+
+    <nav class="navbar" id="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#home-section" class="nav-brand" id="nav-brand">Portfolio<span>.</span></a>
+            <ul class="nav-links" id="nav-links" role="list"></ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+                <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Home Section -->
+        <section class="section" id="home-section" aria-labelledby="home-heading"></section>
+
+        <!-- Resume Download -->
+        <div class="section" id="resume-section"></div>
+
+        <!-- Tabbed Sections -->
+        <div class="section" id="tabbed-section">
+            <div class="tab-buttons" id="tab-buttons">
+                <button class="tab-btn active" data-tab="skills">Skills & Experience</button>
+                <button class="tab-btn" data-tab="education">Education</button>
+                <button class="tab-btn" data-tab="projects">Projects</button>
+                <button class="tab-btn" data-tab="certificates">Certificates</button>
+                <button class="tab-btn" data-tab="internships">Internships</button>
+            </div>
+            <div class="tab-content-wrapper">
+                <section class="tab-pane active" id="skills-section" aria-labelledby="skills-heading"></section>
+                <section class="tab-pane" id="education-section" aria-labelledby="education-heading"></section>
+                <section class="tab-pane" id="projects-section" aria-labelledby="projects-heading"></section>
+                <section class="tab-pane" id="certificates-section" aria-labelledby="certificates-heading"></section>
+                <section class="tab-pane" id="internships-section" aria-labelledby="internships-heading"></section>
+            </div>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="section" id="contact-section" aria-labelledby="contact-heading"></section>
+    </main>
+
+    <footer class="site-footer" id="site-footer"></footer>
+
+    <!-- Document Modal (for education memos) -->
+    <div class="modal-overlay" id="doc-modal-overlay" aria-hidden="true">
+        <div class="modal" id="doc-modal" role="dialog" aria-modal="true" aria-labelledby="doc-modal-title">
+            <button class="modal-close" id="doc-modal-close" aria-label="Close">&times;</button>
+            <h3 id="doc-modal-title" style="font-weight:700;margin-bottom:12px;">Document Viewer</h3>
+            <div id="doc-viewer-container"></div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>
+
+    <script>
+        (function() {
+            const navBrand = document.getElementById('nav-brand');
+            const navLinks = document.getElementById('nav-links');
+            const hamburger = document.getElementById('hamburger');
+            const themeToggle = document.getElementById('theme-toggle');
+            const backToTop = document.getElementById('back-to-top');
+            const docModalOverlay = document.getElementById('doc-modal-overlay');
+            const docModalClose = document.getElementById('doc-modal-close');
+            const docViewerContainer = document.getElementById('doc-viewer-container');
+            const htmlElement = document.documentElement;
+
+            const homeSection = document.getElementById('home-section');
+            const skillsSection = document.getElementById('skills-section');
+            const educationSection = document.getElementById('education-section');
+            const projectsSection = document.getElementById('projects-section');
+            const certificatesSection = document.getElementById('certificates-section');
+            const contactSection = document.getElementById('contact-section');
+            const internshipsSection = document.getElementById('internships-section');
+            const footerEl = document.getElementById('site-footer');
+            const resumeSection = document.getElementById('resume-section');
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+
+            const sectionMap = {
+                home: { id: 'home-section', label: 'Home', type: 'scroll' },
+                skills: { id: 'skills-section', label: 'Skills', tab: 'skills' },
+                education: { id: 'education-section', label: 'Education', tab: 'education' },
+                projects: { id: 'projects-section', label: 'Projects', tab: 'projects' },
+                certificates: { id: 'certificates-section', label: 'Certificates', tab: 'certificates' },
+                contact: { id: 'contact-section', label: 'Contact', type: 'scroll' },
+                internships: { id: 'internships-section', label: 'Internships', tab: 'internships' },
+            };
+
+            let jsonData = null;
+
+            function placeholderSVG(w,h,t,bg='#e2e8f0',tc='#94a3b8') {
+                return 'data:image/svg+xml;base64,' + btoa(`<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}"><rect width="${w}" height="${h}" fill="${bg}"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Inter,system-ui" font-weight="700" fill="${tc}" font-size="${Math.min(w,h)*0.18}">${t}</text></svg>`);
+            }
+
+            async function fetchData() {
+                try {
+                    const res = await fetch('data.json');
+                    if(!res.ok) throw new Error(`HTTP ${res.status}`);
+                    jsonData = await res.json();
+                    return jsonData;
+                } catch(e) {
+                    homeSection.innerHTML = `<div style="text-align:center;padding:60px"><h2 style="color:#ef4444;">⚠️ Could not load data.json</h2><p>${e.message}</p></div>`;
+                    return null;
+                }
+            }
+function renderResume(d) {
+    if(!d?.resume?.url) { resumeSection.style.display='none'; return; }
+    const r = d.resume;
+    resumeSection.innerHTML = `
+        <div class="resume-block">
+            <h3>My Resume</h3>
+            <div class="resume-buttons">
+                <a href="${r.url}" target="_blank" rel="noopener noreferrer" class="resume-btn primary">
+                    📄 ${r.viewText||'View Resume'}
+                </a>
+                <a href="${r.url}" download class="resume-btn">
+                    ⬇ ${r.buttonText||'Download Resume'}
+                </a>
+            </div>
+        </div>`;
+}
+            function renderHome(d) {
+                if(!d?.home) { homeSection.style.display='none'; return; }
+                const h = d.home;
+                homeSection.innerHTML = `
+                    <div class="home-container">
+                        <div class="home-image-wrapper">
+                            ${h.image ? `<img src="${h.image}" alt="${h.name}" width="180" height="180" onerror="this.parentElement.innerHTML='<div class=\\'home-image-fallback\\'>${(h.name||'?').charAt(0).toUpperCase()}</div>'">` : `<div class="home-image-fallback">${(h.name||'?').charAt(0).toUpperCase()}</div>`}
+                        </div>
+                        <div class="home-text">
+                            <p class="greeting">Hello, I'm</p>
+                            <h1>${h.name||''}</h1>
+                            <p class="role">${h.role||''}</p>
+                            <p class="description">${h.description||''}</p>
+                            <a href="#contact-section" class="home-cta">Get In Touch</a>
+                        </div>
+                    </div>`;
+                navBrand.innerHTML = `${h.name?.split(' ')[0]||'Portfolio'}<span>.</span>`;
+                document.title = `${h.name||'Portfolio'} | ${h.role||''}`;
+            }
+
+            function renderResume(d) {
+                if(!d?.resume?.url) { resumeSection.style.display='none'; return; }
+                const r = d.resume;
+                resumeSection.innerHTML = `
+                    <div class="resume-block">
+                        <h3>My Resume</h3>
+                        <div class="resume-buttons">
+                            <a href="${r.url}" target="_blank" rel="noopener noreferrer" class="resume-btn primary">📄 ${r.viewText||'View Resume'}</a>
+                            <a href="${r.url}" download class="resume-btn">⬇ ${r.buttonText||'Download Resume'}</a>
+                        </div>
+                    </div>`;
+            }
+
+            function renderSkills(d) {
+                if(!d?.skills?.length) { skillsSection.innerHTML = ''; return; }
+                const cards = d.skills.map(s=>`
+                    <div class="skill-card">
+                        <div class="skill-card-header"><span class="skill-card-title">${s.title}</span></div>
+                        <p class="skill-description">${s.description||''}</p>
+                        ${s.technologies?.length ? `<div class="skill-tech-tags">${s.technologies.map(t=>`<span class="skill-tech-tag">${t}</span>`).join('')}</div>` : ''}
+                    </div>
+                `).join('');
+                skillsSection.innerHTML = `<div class="section-header"><h2 id="skills-heading">Skills & Expertise</h2></div><div class="skills-grid">${cards}</div>`;
+            }
+
+            function renderEducation(d) {
+                if(!d?.education?.length) { educationSection.innerHTML = ''; return; }
+                const items = d.education.map(e=>`
+                    <div class="timeline-item">
+                        <p class="timeline-degree">${e.degree||''}</p>
+                        <p class="timeline-institution">${e.institution||''}</p>
+                        <span class="timeline-year">${e.year||''}</span>
+                        <p class="timeline-desc">${e.description||''}</p>
+                        ${e.document ? `<a href="${e.document.url}" target="_blank" rel="noopener noreferrer" class="memo-btn">📄 ${e.document.title||'View'}</a>` : ''}
+                    </div>
+                `).join('');
+                educationSection.innerHTML = `<div class="section-header"><h2 id="education-heading">Education</h2></div><div class="timeline">${items}</div>`;
+                
+            }
+
+            function renderProjects(d) {
+                if(!d?.projects?.length) { projectsSection.innerHTML = ''; return; }
+                const cards = d.projects.map(p=>{
+                    const tagsHTML = Array.isArray(p.technologies) ? p.technologies.map(t=>`<span class="project-tag">${t}</span>`).join('') : '';
+                    const githubBtn = p.github ? `<a href="${p.github}" target="_blank" rel="noopener noreferrer" class="project-btn github">🐙 GitHub</a>` : '';
+                    const liveBtn = p.live ? `<a href="${p.live}" target="_blank" rel="noopener noreferrer" class="project-btn live">🚀 Live Demo</a>` : '';
+                    const durationHTML = p.duration ? `<span class="project-duration">⏱ ${p.duration}</span>` : '';
+                    return `
+                        <div class="project-card">
+                            <div class="project-card-image">
+                                ${p.image ? `<img src="${p.image}" alt="${p.title}" width="600" height="400" loading="lazy" onerror="this.parentElement.innerHTML='<div class=\\'img-fallback\\'>📁</div>'">` : '<div class="img-fallback">📁</div>'}
+                            </div>
+                            <div class="project-card-body">
+                                <h3>${p.title}</h3>
+                                <p>${p.description||''}</p>
+                                ${durationHTML}
+                                ${tagsHTML ? `<div class="project-tags">${tagsHTML}</div>` : ''}
+                                ${ (githubBtn || liveBtn) ? `<div class="project-links">${githubBtn}${liveBtn}</div>` : '' }
+                            </div>
+                        </div>`;
+                }).join('');
+                projectsSection.innerHTML = `<div class="section-header"><h2 id="projects-heading">Projects</h2></div><div class="projects-grid">${cards}</div>`;
+            }
+
+            function renderCertificates(d) {
+                if(!d?.certificates) { certificatesSection.innerHTML = ''; return; }
+                const featured = Array.isArray(d.certificates.featured) ? d.certificates.featured : [];
+                const others = Array.isArray(d.certificates.others) ? d.certificates.others : [];
+                const allCerts = [...featured, ...others];
+                if(!allCerts.length) { certificatesSection.innerHTML = ''; return; }
+                const cards = allCerts.map((c, index)=>`
+                    <div class="cert-card">
+                        <div class="cert-icon">
+                            ${c.icon ? `<img src="${c.icon}" alt="${c.name}" width="46" height="46" onerror="this.parentElement.innerHTML='<div class=\\\\'icon-fallback\\\\'>${(c.name||'C').charAt(0)}</div>'">` : `<div class="icon-fallback">${(c.name||'C').charAt(0)}</div>`}
+                        </div>
+                        <div class="cert-info">
+                            <h4>${c.name||''}</h4>
+                            <span class="cert-platform">${c.platform||''}</span>
+                            <div><span class="cert-date">📅 ${c.date||''}</span>${c.code?`<span class="cert-code">${c.code}</span>`:''}</div>
+                            <p class="cert-desc">${c.description||''}</p>
+                            <div class="cert-actions">
+                                <button type="button" class="cert-view-btn" data-cert-index="${index}">👁 View Certificate</button>
+                                ${c.link?`<a href="${c.link}" target="_blank" rel="noopener" class="cert-verify-link">🔗 Verify</a>`:''}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+                certificatesSection.innerHTML = `<div class="section-header"><h2 id="certificates-heading">Certificates</h2></div><div class="certs-grid">${cards}</div>`;
+                certificatesSection.querySelectorAll('.cert-view-btn').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const cert = allCerts[Number(button.dataset.certIndex)];
+                        openDocModal(cert.file || cert.certificate || '', cert.name || 'Certificate');
+                    });
+                });
+            }
+
+            function renderInternships(d) {
+                const internships = Array.isArray(d?.internships) ? d.internships : [];
+                if (!internships.length) {
+                    internshipsSection.innerHTML = `
+                        <div class="section-header"><h2 id="internships-heading">Internships</h2></div>
+                        <div class="empty-state">Internship details will appear here. Add your internship entries to the <strong>internships</strong> array in <code>data.json</code>.</div>`;
+                    return;
+                }
+                const cards = internships.map(item => `
+                    <article class="internship-card">
+                        <h3>${item.role || item.title || 'Internship'}</h3>
+                        <div class="internship-company">${item.company || ''}</div>
+                        <div class="internship-meta">${[item.duration, item.location].filter(Boolean).join(' • ')}</div>
+                        <p>${item.description || ''}</p>
+                        ${Array.isArray(item.technologies) && item.technologies.length
+                            ? `<div class="internship-tags">${item.technologies.map(tag => `<span class="internship-tag">${tag}</span>`).join('')}</div>` : ''}
+                        ${item.certificate ? `<div style="margin-top:14px"><button type="button" class="cert-view-btn internship-view-btn" data-file="${item.certificate}" data-title="${item.role || item.title || 'Internship'} Certificate">👁 View Certificate</button></div>` : ''}
+                    </article>
+                `).join('');
+                internshipsSection.innerHTML = `<div class="section-header"><h2 id="internships-heading">Internships</h2></div><div class="internships-grid">${cards}</div>`;
+                internshipsSection.querySelectorAll('.internship-view-btn').forEach(button => {
+                    button.addEventListener('click', () => openDocModal(button.dataset.file, button.dataset.title));
+                });
+            }
+
+            function renderContact(d) {
+                if(!d?.contact) { contactSection.style.display='none'; return; }
+                const c=d.contact; const socials=c.socials||{};
+                const icons={whatsapp:'💬',instagram:'📸',linkedin:'💼',github:'🐙',leetcode:'🧩'};
+                const socialLinks = Object.entries(socials).map(([p,u])=>`<a href="${u||'#'}" class="social-link" target="_blank" rel="noopener" title="${p}">${icons[p]||'🔗'}</a>`).join('');
+                contactSection.innerHTML = `
+                    <div class="section-header"><h2 id="contact-heading">Contact</h2></div>
+                    <div class="contact-container">
+                        <div class="contact-info-card">
+                            <h3>Get In Touch</h3>
+                            <div class="contact-detail"><span class="detail-icon">📧</span><span>${c.email||''}</span></div>
+                            <div class="contact-detail"><span class="detail-icon">📞</span><span>${c.phone||''}</span></div>
+                            <div class="contact-detail"><span class="detail-icon">📍</span><span>${c.location||''}</span></div>
+                            ${socialLinks?`<div class="social-links">${socialLinks}</div>`:''}
+                        </div>
+                        <div class="contact-form-card">
+                            <h3>Send a Message</h3>
+                            <form onsubmit="event.preventDefault();alert('📬 Message sent!');this.reset();">
+                                <div class="form-group"><label>Name</label><input type="text" required></div>
+                                <div class="form-group"><label>Email</label><input type="email" required></div>
+                                <div class="form-group"><label>Message</label><textarea rows="4" required></textarea></div>
+                                <button type="submit" class="submit-btn">Send ✉️</button>
+                            </form>
+                        </div>
+                    </div>`;
+            }
+
+            function renderFooter(d) {
+                const home=d?.home||{}; const contact=d?.contact||{}; const socials=contact.socials||{};
+                const icons={whatsapp:'💬',linkedin:'💼',github:'🐙',leetcode:'🧩'};
+                const links = Object.entries(socials).map(([p,u])=>`<a href="${u||'#'}" target="_blank" rel="noopener" title="${p}">${icons[p]||'🔗'}</a>`).join('');
+                footerEl.innerHTML = `
+                    <div class="footer-container">
+                        <p class="footer-name">${home.name||'Portfolio'}</p>
+                        ${links?`<div class="footer-socials">${links}</div>`:''}
+                        <p class="footer-copy">&copy; ${new Date().getFullYear()} ${home.name||'Portfolio'}. All rights reserved.</p>
+                    </div>`;
+            }
+
+            function switchTab(tabName) {
+                tabButtons.forEach(b => b.classList.toggle('active', b.dataset.tab === tabName));
+                tabPanes.forEach(pane => {
+                    pane.classList.toggle('active', pane.id === `${tabName}-section`);
+                });
+                // update nav active state if needed
+                navLinks.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+                const navItem = Array.from(navLinks.querySelectorAll('a')).find(a => a.getAttribute('href') === `#${tabName}-section`);
+                if(navItem) navItem.classList.add('active');
+            }
+
+            function buildNav(d) {
+                const show = [];
+                if(d?.home) show.push('home');
+                if(d?.skills?.length) show.push('skills');
+                if(d?.education?.length) show.push('education');
+                if(d?.projects?.length) show.push('projects');
+                if(d?.certificates && (d.certificates.featured?.length||d.certificates.others?.length)) show.push('certificates');
+                if(d?.internships?.length) show.push('internships');
+                if(d?.contact) show.push('contact');
+
+                const frag = document.createDocumentFragment();
+                show.forEach(key => {
+                    const sec = sectionMap[key];
+                    const a = document.createElement('a');
+                    a.href = `#${sec.id}`;
+                    a.textContent = sec.label;
+                    a.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        if(sec.type === 'scroll') {
+                            document.querySelector(sec.id)?.scrollIntoView({ behavior: 'smooth' });
+                        } else if(sec.tab) {
+                            switchTab(sec.tab);
+                            document.getElementById('tabbed-section').scrollIntoView({ behavior: 'smooth' });
+                        }
+                        navLinks.classList.remove('mobile-open');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded','false');
+                    });
+                    frag.appendChild(a);
+                });
+                navLinks.innerHTML = '';
+                navLinks.appendChild(frag);
+            }
+
+            function openDocModal(url, title) {
+                document.getElementById('doc-modal-title').textContent = title || 'Document';
+                const isPDF = url?.toLowerCase().split('?')[0].endsWith('.pdf');
+                const isImage = /\.(png|jpe?g|webp)$/i.test(url || '');
+                if (!url) {
+                    docViewerContainer.innerHTML = `<div class="viewer-note">The certificate preview file has not been added yet. Add its relative path to the certificate's <code>file</code> field in <code>data.json</code> (for example, <code>docs/my-certificate.pdf</code>), then this popup will display it here.</div>`;
+                } else if(isPDF) {
+                    docViewerContainer.innerHTML = `<iframe src="${url}" class="document-viewer" title="Document preview"></iframe><a href="${url}" download class="document-download">⬇ Download PDF</a>`;
+                } else if(isImage) {
+                    docViewerContainer.innerHTML = `<img src="${url}" class="certificate-image-viewer" alt="${title || 'Certificate'}"><a href="${url}" target="_blank" rel="noopener" class="document-download">↗ Open original</a>`;
+                } else {
+                    docViewerContainer.innerHTML = `<p class="viewer-note">Preview is available for PDF and image files. Open the file in a new tab instead.</p><a href="${url}" target="_blank" rel="noopener" class="document-download">🔗 Open Document</a>`;
+                }
+                docModalOverlay.classList.add('active');
+                docModalOverlay.setAttribute('aria-hidden','false');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeDocModal() {
+                docModalOverlay.classList.remove('active');
+                docModalOverlay.setAttribute('aria-hidden','true');
+                docViewerContainer.innerHTML = '';
+                document.body.style.overflow = '';
+            }
+            docModalClose.addEventListener('click', closeDocModal);
+            docModalOverlay.addEventListener('click', (e)=>{ if(e.target===docModalOverlay) closeDocModal(); });
+            document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && docModalOverlay.classList.contains('active')) closeDocModal(); });
+
+            function setupTheme() {
+                const saved = localStorage.getItem('portfolio-theme');
+                if(saved==='dark') { htmlElement.setAttribute('data-theme','dark'); themeToggle.textContent='☀️'; }
+                else { htmlElement.setAttribute('data-theme','light'); themeToggle.textContent='🌙'; }
+                themeToggle.addEventListener('click', ()=>{
+                    const cur = htmlElement.getAttribute('data-theme');
+                    const next = cur==='dark'?'light':'dark';
+                    htmlElement.setAttribute('data-theme', next);
+                    localStorage.setItem('portfolio-theme', next);
+                    themeToggle.textContent = next==='dark'?'☀️':'🌙';
+                });
+            }
+
+            function setupMobileMenu() {
+                hamburger.addEventListener('click', ()=>{
+                    const isOpen = navLinks.classList.toggle('mobile-open');
+                    hamburger.classList.toggle('active');
+                    hamburger.setAttribute('aria-expanded', isOpen);
+                    document.body.style.overflow = isOpen?'hidden':'';
+                });
+                document.addEventListener('click', (e)=>{
+                    if(navLinks.classList.contains('mobile-open') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                        navLinks.classList.remove('mobile-open');
+                        hamburger.classList.remove('active');
+                        hamburger.setAttribute('aria-expanded','false');
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            function setupBackToTop() {
+                window.addEventListener('scroll', ()=>{ backToTop.classList.toggle('visible', window.scrollY>500); });
+                backToTop.addEventListener('click', ()=>{ window.scrollTo({top:0,behavior:'smooth'}); });
+            }
+
+            // Initialize tabs
+            tabButtons.forEach(btn => {
+                btn.addEventListener('click', () => switchTab(btn.dataset.tab));
+            });
+
+            async function init() {
+                setupTheme();
+                setupMobileMenu();
+                setupBackToTop();
+                const data = await fetchData();
+                if(!data) return;
+                renderHome(data);
+                renderResume(data);
+                renderSkills(data);
+                renderEducation(data);
+                renderProjects(data);
+                renderCertificates(data);
+                renderInternships(data);
+                renderContact(data);
+                renderFooter(data);
+                buildNav(data);
+                // Activate initial tab from hash or default
+                const hash = window.location.hash.replace('#', '').replace('-section','');
+                if(hash && sectionMap[hash]?.tab) {
+                    switchTab(sectionMap[hash].tab);
+                } else {
+                    switchTab('skills');
+                }
+            }
+            init();
+        })();
+    </script>
+</body>
+</html>

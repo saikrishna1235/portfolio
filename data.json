@@ -1,0 +1,344 @@
+{
+  "home": {
+    "name": "Koyyada Sai Krishna",
+    "role": "Software developer",
+    "description": "I am a Software Developer and Computer Science student passionate about building efficient, scalable, and user-friendly applications. I enjoy solving real-world problems using modern technologies and continuously improving my skills in web development and software engineering.",
+    "image": "images/Photo.png"
+  },
+  "resume": {
+    "url": "docs/Koyyada Sai Krishna Resume.pdf",
+    "buttonText": "Download Resume",
+    "viewText": "View Resume"
+  },
+  "skills": [
+    {
+      "title": "Frontend",
+      "level": "",
+      "description": "Crafting responsive, accessible, and performant user interfaces with modern frameworks and tooling.",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "React",
+        "Bootstrap"
+      ]
+    },
+    {
+      "title": "Backend",
+      "level": "",
+      "description": "Designing robust REST & GraphQL APIs, microservices, and server-side logic with industry‑standard languages.",
+      "technologies": [
+        "Node.js",
+        "Express",
+        "Python",
+        "Django",
+        "Java"
+      ]
+    },
+    {
+      "title": "Databases",
+      "level": "",
+      "description": "Modeling, querying, and managing both relational and NoSQL databases for optimal data flow and integrity.",
+      "technologies": [
+        "MySQL",
+        "MongoDB"
+      ]
+    },
+    {
+      "title": "Cloud",
+      "level": "",
+      "description": "Deploying, scaling, and monitoring applications using cloud platforms and DevOps practices.",
+      "technologies": [
+        "AWS",
+        "Vercel",
+        "GitHub Actions"
+      ]
+    }
+  ],
+  "education": [
+    {
+      "degree": "B.Tech in Computer Science",
+      "institution": "SR University, Warangal",
+      "year": "2022 - 2028",
+      "description": "Focus on data structures, algorithms, and Core Concepts. ",
+      "document": {
+        "title": "Transcript / Memo",
+        "url": "docs/SEM 2,1 and 2,2.pdf",
+        "type": "pdf"
+      }
+    },
+    {
+      "degree": "Diploma",
+      "institution": "Singareni Collieries Polytechnic College , Manchiral",
+      "year": "2022 - 2025",
+      "description": "Diploma Computer Science student with a strong academic record (CGPA 9.63), skilled in programming, databases, and web technologies, with hands-on project and lab experience. ",
+      "document": {
+        "title": "Memo Document",
+        "url": "docs/CONSOLIDATED_MEMORANDUM_MARKS_22161-cs-039.pdf",
+        "type": "pdf"
+      }
+    },
+    {
+      "degree": "High School",
+      "institution": "Radient High School , Manchiral",
+      "year": "2022",
+      "description": "SSC graduate with an academic record (GPA 9.7), demonstrating strong fundamentals and consistent performance across subjects. ",
+      "document": {
+        "title": "Memo Document",
+        "url": "docs/certificates.pdf",
+        "type": "pdf"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "title": "APIS Healthcare Website",
+      "image": "images/APIS.png",
+      "description": "A modern, responsive healthcare and pharmaceutical training institute website developed using Next.js. Features dynamic course pages, SEO optimization, Google Search Console integration, XML sitemap, robots.txt, structured data (JSON-LD), WhatsApp enquiry integration, enrollment modal, responsive navigation, and a professional UI optimized for desktop and mobile devices.",
+      "technologies": [
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Vercel",
+        "Google Search Console",
+        "SEO",
+        "JSON-LD",
+        "WhatsApp API"
+      ],
+      "github": "https://github.com/saikrishna1235/apis-website",
+      "live": "https://www.apishealthcare.co.in"
+    },
+    {
+      "title": "Manufacturing CRM System",
+      "image": "images/p2.png",
+      "description": "Full-stack MERN-based CRM application designed for manufacturing businesses to manage leads, sales pipelines, customer workflows, and business analytics. Features JWT authentication, protected routes, lead management, status tracking, search & filters, revenue analytics dashboard, and interactive charts with a modern responsive UI.",
+      "technologies": [
+        "React.js",
+        "Node.js",
+        "Express.js",
+        "MongoDB Atlas",
+        "Mongoose",
+        "JWT Authentication",
+        "Tailwind CSS",
+        "Axios",
+        "Recharts",
+        "Vercel",
+        "Render"
+      ],
+      "github": "https://github.com/saikrishna1235/manufacturing-crm-system",
+      "live": "https://manufacturing-crm-system.vercel.app"
+    },
+    {
+      "title": "Hospital Management System",
+      "image": "images/hms.png",
+      "description": "Browser-based Hospital Management System for managing patients, doctors, appointments, FIFO queues, medical records, pharmacy inventory, billing, payments, and dashboard insights. Implements role-based access control and LocalStorage-based data persistence, with Git and GitHub used for feature-branch development, incremental commits, collaborative integration, and version control.",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "LocalStorage",
+        "Data Structures",
+        "Git",
+        "GitHub"
+      ],
+      "github": "https://github.com/saikrishna1235/hospital-management-system",
+      "live": "https://hospital-management-system-hvokt2nta-k-sai-krishna-s-projects.vercel.app/pages/login.html"
+    },
+    {
+      "title": "TS EAMCET Smart College Predictor",
+      "image": "images/p1.png",
+      "description": "Machine Learning-based web application that predicts colleges based on student rank, category, gender, and region. Uses a Random Forest model to generate probability-based recommendations and classifies options into safe, target, and dream categories, with interactive cutoff trend visualizations.",
+      "technologies": [
+        "Python",
+        "FastAPI",
+        "Scikit-learn",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Chart.js"
+      ],
+      "github": "https://github.com/saikrishna1235/ML_Project-Rank_based_college_and_branch_predection",
+      "live": "https://your-project-demo-link.com"
+    },
+    {
+      "title": "Assignment & Resource Management System (LMS)",
+      "image": "images/Screenshot (1253).png",
+      "description": "Built a full-stack LMS platform to manage assignments, resources, and course activities with role-based dashboards for students, teachers, and admins.",
+      "technologies": [
+        "HTML5",
+        "CSS3",
+        "JavaScript",
+        "Bootstrap",
+        "Node.js",
+        "Express.js",
+        "MySQL",
+        "GitHub",
+        "VS Code",
+        "Postman",
+        "Bcrypt (Password Hashing), Input Validation"
+      ],
+      "github": "https://github.com/saikrishna1235/ARMS-Assignment-and-resources-management-system-",
+      "live": "arms-assignment-and-resources-manag.vercel.app"
+    }
+  ],
+  "certificates": {
+    "featured": [
+      {
+        "name": "Microsoft Certified: Azure AI Fundamentals",
+        "platform": "Microsoft Azure",
+        "date": "SEP-09-2025",
+        "code": "wNMUR-2FMo",
+        "link": "https://www.certiport.com/portal/pages/credentialverification.aspx",
+        "icon": "images/channels4_profile.jpg",
+        "certificate": "images/Microsoft-Azure-AI-Fundamentals.pdf",
+        "description": "Validates foundational knowledge of artificial intelligence and machine learning concepts, and how to implement AI solutions using Microsoft Azure services."
+      },
+      {
+        "name": "CCNA: Introduction to Networks",
+        "platform": "Cisco Networking Academy",
+        "date": "NOV-19-2025",
+        "code": "CCNA",
+        "link": "https://www.credly.com/badges/708b2f59-a5e3-4ec0-a017-0501744471c3",
+        "icon": "images/images.png",
+        "certificate": "images/CCNAITNUpdated20251119-32-koxrm8.pdf",
+        "description": "Validates foundational networking knowledge including configuring switches and routers, understanding network protocols, IP addressing (IPv4 and IPv6), and troubleshooting connectivity in small networks."
+      },
+      {
+        "name": "Data Science Essentials with Python",
+        "platform": "Cisco Networking Academy",
+        "date": "NOV-04-2026",
+        "code": "f4ef9050-9fc2-4114-bef1-f86fa28ffe99",
+        "icon": "images/images.png",
+        "certificate": "images/Data_Science_Essentials_with_Python.pdf",
+        "description": "Successfully completed the Data Science Essentials with Python course offered by Networking Academy through the Cisco Networking Academy program, gaining foundational knowledge of data science concepts and Python."
+      },
+      {
+        "name": "Introduction to Git and GitHub",
+        "platform": "Coursera",
+        "date": "OCT-08-2025",
+        "code": "GIT-GITHUB",
+        "link": "https://coursera.org/verify/E8KKG1R26ZXA",
+        "icon": "images/google.png",
+        "certificate": "images/Introduction to Git and GitHub.pdf",
+        "description": "Validates foundational knowledge of Git and GitHub, including version control, repository management, branching, merging, collaboration workflows, and using GitHub for software development projects."
+      },
+      {
+        "name": "Python Development with ChatGPT: Fullstack App Development",
+        "platform": "Coursera Project Network",
+        "date": "OCT-30-2025",
+        "code": "PYTHON-CHATGPT",
+        "link": "https://coursera.org/verify/57R5GK9BIHNA",
+        "icon": "images/coursera.png",
+        "certificate": "images/Python Development with ChatGPT Fullstack App Development.pdf",
+        "description": "Validates practical skills in Python fullstack application development using ChatGPT assistance, including backend programming, application workflows, AI-assisted coding, and project-based software development."
+      },
+      {
+        "name": "AWS Academy Graduate - Cloud Developing",
+        "platform": "Amazon Web Services (AWS)",
+        "date": "OCT-27-2025",
+        "code": "AWS-CLOUD-DEVELOPING",
+        "link": "https://www.credly.com/go/8Olnw9Kp",
+        "icon": "images/logo_0.png",
+        "certificate": "images/AWS_Academy_Graduate___Cloud_Developing___Training_Badge_Badge20251027-29-s9eha3.pdf",
+        "description": "Validates practical skills in developing, deploying, and maintaining applications on AWS, including core services, cloud architecture, and hands-on experience with cloud-based development environments."
+      }
+    ],
+    "others": [
+      {
+        "name": "AWS Academy Graduate - Cloud Foundations",
+        "platform": "Amazon Web Services (AWS)",
+        "date": "OCT-08-2025",
+        "code": "AWS-CF-FOUNDATIONS",
+        "link": "https://www.credly.com/go/4Ac4Ca84",
+        "icon": "images/logo_0.png",
+        "certificate": "images/AWS_Academy_Graduate___Cloud_Foundations___Training_Badge_Badge20251008-31-hcx5b6.pdf",
+        "description": "Validates foundational knowledge of cloud computing concepts, AWS core services, security, architecture, pricing, and support, preparing learners for entry-level cloud roles."
+      },
+      {
+        "name": "AWS Academy Graduate - Cloud Security Builder",
+        "platform": "Amazon Web Services (AWS)",
+        "date": "OCT-27-2025",
+        "code": "AWS-CLOUD-SECURITY",
+        "link": "https://www.credly.com/go/Dwxie8ZQ",
+        "icon": "images/logo_0.png",
+        "certificate": "images/AWS_Academy_Graduate___Cloud_Security_Builder___Training_Badge_Badge20251028-31-8stg3i.pdf",
+        "description": "Validates foundational skills in cloud security on AWS, including identity and access management, data protection, network security, and implementing secure cloud architectures."
+      },
+      {
+        "name": "AWS Academy Graduate - Cloud Web Application Builder",
+        "platform": "Amazon Web Services (AWS)",
+        "date": "OCT-08-2025",
+        "code": "AWS-CLOUD-WEB",
+        "link": "https://www.credly.com/go/Ybh72j5W",
+        "icon": "images/logo_0.png",
+        "certificate": "images/AWS_Academy_Graduate___Cloud_Web_Application_Builder___Training_Badge_Badge20251008-34-51tv8i.pdf",
+        "description": "Validates skills in building and deploying web applications on AWS, including using cloud services, managing application architecture, and implementing scalable and reliable web solutions."
+      }
+    ]
+  },
+  "contact": {
+    "email": "saikrishnakoyyada20669@gmail.com",
+    "phone": "+91 6303212628",
+    "location": "Warangal , Telangana , India",
+    "socials": {
+      "whatsapp": "https://wa.me/916303212628",
+      "linkedin": "https://www.linkedin.com/in/saikrishna-koyyada-422923365/",
+      "github": "https://github.com/saikrishna1235",
+      "leetcode": "https://leetcode.com/u/sai_krishna_39/"
+    }
+  },
+  "internships": [
+  {
+    "role": "Software Developer Intern",
+    "company": "Yuga Yatra Retail (OPC) Private Limited",
+    "duration": "January 12, 2026 – March 12, 2026",
+    "location": "Remote",
+    "description": "Completed a two-month internship as a Software Developer Intern, gaining practical experience in website development and real-world project activities. Developed a dedicated Privacy Policy page for Freshin10, a grocery delivery platform, presenting important information about data collection, data usage, cookies, third-party sharing, data security, and user privacy rights. This experience strengthened my web development skills, improved my understanding of data privacy and transparency, and provided valuable exposure to professional development practices.",
+    "technologies": [
+      "Website Development",
+      "Privacy Policy",
+      "Cursor AI",
+      "Firebase Studio",
+      "AI Technologies",
+      "Canva",
+      "Google Workspace"
+    ],
+    "certificate": "docs/internship-certificate.png"
+  },
+  {
+    "role": "Industrial Trainee – IT Department",
+    "company": "The Singareni Collieries Company Limited (SCCL)",
+    "duration": "November 28, 2024 – May 17, 2025",
+    "location": "Onsite – General Manager Office (IT Department), Srirampur",
+    "description": "Successfully completed six months of industrial training at The Singareni Collieries Company Limited (SCCL), a Government Company. Gained practical exposure to troubleshooting various computer peripherals, understanding networking methods, working with computer hardware components, and exploring related software and server technologies. Developed a stronger understanding of IT infrastructure, hardware maintenance, network operations, and technical problem-solving in a professional industrial environment.",
+    "technologies": [
+      "Computer Hardware",
+      "Peripheral Troubleshooting",
+      "Computer Networking",
+      "Software Support",
+      "Server Technologies",
+      "IT Infrastructure"
+    ],
+    "certificate": "docs/SCCL-Industrial-Training-Certificate.pdf"
+  },
+  {
+    "role": "Python Fullstack Developer – Virtual Intern",
+    "company": "AICTE – EduSkills Virtual Internship Program",
+    "duration": "August 2026 – October 2026",
+    "location": "Virtual",
+    "description": "Successfully completed an 8-week Python Fullstack Developer Virtual Internship under the AICTE–EduSkills program. Followed a structured learning path covering frontend development with HTML, CSS, Bootstrap, JavaScript, and jQuery, followed by backend development using Python and Django. Gained practical knowledge of database management with MySQL, including database design and CRUD operations. Completed weekly assessments, assignments, and project-based learning activities to strengthen full-stack development skills.",
+    "technologies": [
+      "HTML",
+      "CSS",
+      "Bootstrap",
+      "JavaScript",
+      "jQuery",
+      "Python",
+      "Django",
+      "MySQL"
+    ],
+    "certificate": "docs/Python-Fullstack-Virtual-Internship-Certificate.pdf"
+  }
+]
+}
