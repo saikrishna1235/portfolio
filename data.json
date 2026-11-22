@@ -146,20 +146,19 @@
       "live": "https://hospital-management-system-hvokt2nta-k-sai-krishna-s-projects.vercel.app/pages/login.html"
     },
     {
-      "title": "TS EAMCET Smart College Predictor",
+      "title": "AI-Powered TGEAPCET College and Branch Prediction Platform",
       "image": "images/p1.png",
-      "description": "Machine Learning-based web application that predicts colleges based on student rank, category, gender, and region. Uses a Random Forest model to generate probability-based recommendations and classifies options into safe, target, and dream categories, with interactive cutoff trend visualizations.",
+      "description": "Developed a personalized college and branch recommendation platform using historical TGEAPCET counselling data. Analyzes student rank, category, gender, and regional eligibility to recommend suitable colleges and branches. Implements historical cutoff analysis and categorizes recommendations into Ambitious, Competitive, and Historically More Favorable options with evidence-based explanations.",
       "technologies": [
         "Python",
-        "FastAPI",
-        "Scikit-learn",
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Chart.js"
+        "Pandas",
+        "NumPy",
+        "Streamlit",
+        "Data Analysis",
+        "Historical Cutoff Analysis"
       ],
-      "github": "https://github.com/saikrishna1235/ML_Project-Rank_based_college_and_branch_predection",
-      "live": "https://your-project-demo-link.com"
+      "github": "https://github.com/saikrishna1235/TGEAPCET-College-and-Branch-Admission-Predictor",
+      "live": "https://saikrishna1235-tgeapcet-college-and-branch-admission-app-y9xhze.streamlit.app/"
     },
     {
       "title": "Assignment & Resource Management System (LMS)",
