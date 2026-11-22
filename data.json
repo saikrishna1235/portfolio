@@ -147,7 +147,7 @@
     },
     {
       "title": "AI-Powered TGEAPCET College and Branch Prediction Platform",
-      "image": "images/p1.png",
+      "image": "images/AI.png",
       "description": "Developed a personalized college and branch recommendation platform using historical TGEAPCET counselling data. Analyzes student rank, category, gender, and regional eligibility to recommend suitable colleges and branches. Implements historical cutoff analysis and categorizes recommendations into Ambitious, Competitive, and Historically More Favorable options with evidence-based explanations.",
       "technologies": [
         "Python",
